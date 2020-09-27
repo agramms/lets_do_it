@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+Bundler.require
+
+require "irb"
+require "irb/completion"
+
+require "amazing_print"
+AmazingPrint.pry!
+
+require "pry"
+Pry.start
+
+set :run, false
+
+IRB.start
