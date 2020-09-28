@@ -1,0 +1,162 @@
+###################### AllCops ######################
+
+AllCops:
+  Exclude:
+  - 'bin/**/*'
+  - 'setup-dev'
+  - 'db/schema.rb'
+  - 'lib/tasks/**/*'
+  - 'gems/**/*'
+
+###################### Kernel ######################
+
+Lint/Loop:
+  Enabled: false
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: false
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: false
+
+###################### Layout ######################
+
+Layout/LineLength:
+  Description: 'Limit lines to 100 characters.'
+  Max: 120
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'config.ru'
+    - 'spec/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+
+Layout/DotPosition:
+  EnforcedStyle: 'leading'
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: 'consistent'
+
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+  Exclude:
+    - 'spec/**/*'
+
+Layout/SpaceInLambdaLiteral:
+  Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+###################### Style ######################
+
+Style/StringLiterals:
+  Description: 'Checks if uses of quotes match the configured preference.'
+  EnforcedStyle: single_quotes
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'config.ru'
+    - 'spec/**/*'
+    - 'config/**/*'
+
+Style/RaiseArgs:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'spec/support/jets_spec_helpers_controllers_request.rb'
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
+Style/RedundantFetchBlock:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: false
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+
+Style/RedundantAssignment:
+  Enabled: true
+
+
+###################### Metrics ######################
+
+Metrics/BlockLength:
+  Exclude:
+  - 'spec/**/*'
+  - 'config/application.rb'
+  - 'db/**/*'
+
+Metrics/MethodLength:
+  Description: 'Avoid methods longer than 25 lines of code.'
+  Max: 25
+  Exclude:
+    - 'spec/support/jets_spec_helpers_controllers_request.rb'
+
+Metrics/AbcSize:
+  Max: 25
+  Exclude:
+    - 'spec/support/*'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'spec/support/jets_spec_helpers_controllers_request.rb'
+
+Metrics/CyclomaticComplexity:
+  Max: 7
+  Exclude:
+    - 'spec/support/jets_spec_helpers_controllers_request.rb'
+
+Metrics/ParameterLists:
+  Exclude:
+    - 'spec/**/*'
