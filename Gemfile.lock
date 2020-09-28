@@ -68,7 +68,8 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    bootsnap (1.7.2)
+    bcrypt (3.1.13)
+    bootsnap (1.4.8)
       msgpack (~> 1.0)
     brakeman (5.0.0)
     builder (3.2.4)
@@ -271,6 +272,7 @@ PLATFORMS
 
 DEPENDENCIES
   amazing_print
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   brakeman
   bundler-audit (~> 0.6)
