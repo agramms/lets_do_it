@@ -47,6 +47,9 @@ group :development do
   # Security
   gem 'brakeman'
   gem 'bundler-audit', '~> 0.6'
+
+  # Tool to manage and configure Git hooks
+  gem 'overcommit', '~> 0.57.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
