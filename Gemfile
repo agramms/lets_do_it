@@ -40,6 +40,8 @@ group :development do
 
   # Code quality
   gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'rubycritic'
 
   # Security
