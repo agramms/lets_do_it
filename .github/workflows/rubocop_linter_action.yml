@@ -15,10 +15,10 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'ci skip')"
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Ruby 2.7
+      - name: Set up Ruby 3.0
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.1
+          ruby-version: 3.0.0
       - name: Cache gems
         uses: actions/cache@v1
         with:
@@ -28,7 +28,6 @@ jobs:
             ${{ runner.os }}-gems-
       - name: Install gems
         run: |
-          gem install rubocop
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
       - name: Run Rubocop
