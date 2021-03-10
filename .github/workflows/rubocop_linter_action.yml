@@ -18,17 +18,9 @@ jobs:
       - name: Set up Ruby 3.0
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0.0
-      - name: Cache gems
-        uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - name: Install gems
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - name: Install Rubocop
+        run: gem install rubocop
       - name: Run Rubocop
-        run: bundle exec rubocop --parallel
+        run: rubocop
