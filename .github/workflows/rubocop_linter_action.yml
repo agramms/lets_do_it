@@ -1,26 +1,19 @@
-name: Linters
-
-on:
-  pull_request:
-    branches:
-      - "*"
-  push:
-    branches:
-      - master
-
+name: Linter
+on: [pull_request]
 jobs:
   rubocop:
-    name: Rubocop Check Action
+    name: runner / rubocop
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip')"
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Ruby 3.0
-        uses: ruby/setup-ruby@v1
+      - name: Check out code
+        uses: actions/checkout@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ env.RUBY_VERSION }}
-          bundler-cache: true
-      - name: Install Rubocop
-        run: gem install rubocop
-      - name: Run Rubocop
-        run: rubocop
+          ruby-version: 3.0.0
+      - name: rubocop
+        uses: reviewdog/action-rubocop@v1
+        with:
+          rubocop_version: gemfile
+          rubocop_extensions: rubocop-rails:gemfile rubocop-rspec:gemfile
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
