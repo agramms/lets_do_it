@@ -3,10 +3,10 @@
 AllCops:
   Exclude:
   - 'bin/**/*'
-  - 'setup-dev'
   - 'db/schema.rb'
   - 'lib/tasks/**/*'
   - 'gems/**/*'
+  - 'db/migrate/**/*'
 
   NewCops: enable
 ###################### Kernel ######################
