@@ -58,5 +58,11 @@ group :development do
   gem 'overcommit', '~> 0.57.0'
 end
 
+group :test do
+  gem 'factory_bot'
+  gem 'faker', '~> 1.6', '>= 1.6.3'
+  gem 'shoulda-matchers'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -3,7 +3,7 @@
 class StatusController < ApplicationController
   skip_before_action :authorize_user
 
-  def healthy
+  def show
     render json: { success: true }
   end
 end

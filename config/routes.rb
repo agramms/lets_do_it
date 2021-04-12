@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
   get '/auto_login', to: 'users#auto_login'
 
-  get '/status', to: 'status#healthy'
+  get :status, action: :show, controller: :status
 end
