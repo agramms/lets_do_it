@@ -65,7 +65,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     FactoryBot.find_definitions
-    # Rails.application.truncate_all
+    DatabaseCleaner.clean_with(:truncation)
     Rails.application.load_seed
   end
 end
