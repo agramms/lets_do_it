@@ -313,6 +313,7 @@ DEPENDENCIES
   rubocop-rspec
   rubycritic
   shoulda-matchers
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
