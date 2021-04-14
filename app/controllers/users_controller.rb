@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       token = encode_token(user_id: @user.id)
       render json: { user: @user, token: token }
     else
-      render json: { error: 'Invalid username or password' }
+      render json: { error: @user.errors }
     end
   end
 
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       token = encode_token(user_id: @user.id)
       render json: { user: @user, token: token }
     else
-      render json: { error: 'Invalid username or password' }
+      render json: { error: 'Invalid email or password' }
     end
   end
 
@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.permit(:username, :password, :age)
+      params.permit(:name, :email, :password)
     end
 end

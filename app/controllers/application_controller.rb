@@ -16,7 +16,7 @@ class ApplicationController < ActionController::API
   end
 
   def encode_token(payload)
-    JWT.encode(payload, jwk.keypair, 'RS512', jwk_private.export)
+    JWT.encode(payload, jwk_private.keypair, 'RS512', jwk_private.export)
   end
 
   def logged_in?
@@ -44,7 +44,7 @@ class ApplicationController < ActionController::API
       pub_key = OpenSSL::PKey::RSA.new File.read Rails.root.join('certs', 'public.key')
       jwk = JWT::JWK.new(pub_key)
 
-      @jwk_loader = lambda options do
+      @jwk_loader = lambda do |options|
         @cached_keys = nil if options[:invalidate] # need to reload the keys
         @cached_keys ||= { keys: [jwk.export] }
       end
