@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       token = encode_token(user_id: @user.id)
       render json: { user: @user, token: token }
     else
-      render json: { error: @user.errors }
+      render json: { error: @user.errors }, status: :bad_request
     end
   end
 
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       token = encode_token(user_id: @user.id)
       render json: { user: @user, token: token }
     else
-      render json: { error: 'Invalid email or password' }
+      render json: { error: 'Invalid email or password' }, status: :unauthorized
     end
   end
 

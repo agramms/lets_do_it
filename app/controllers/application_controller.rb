@@ -9,10 +9,10 @@ class ApplicationController < ActionController::API
     auth_header = request.headers['Authorization']
     token = auth_header.split.last
     decoded_token = decode_token(token)
-    user_id = decoded_token.first['user_id']
+    user_id = decoded_token&.fetch('user_id')
     @user = User.find_by(id: user_id)
 
-    render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
+    render json: { error: 'The token is not valid' }, status: :unauthorized unless logged_in?
   end
 
   def encode_token(payload)

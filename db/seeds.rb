@@ -12,7 +12,8 @@ Rails.logger.info('Seeding database...')
 
 Rails.logger.info('Creating users')
 User.create(
+  id: '#SAMPLE_USER',
   name: 'Foo Bar',
-  email: 'foobar@provider.com',
+  email: 'sampleuser@provider.com',
   password: 'test'
 )
