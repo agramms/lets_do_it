@@ -1,6 +1,8 @@
 ###################### AllCops ######################
 
 AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0.0
   Exclude:
   - 'bin/**/*'
   - 'db/schema.rb'
@@ -8,7 +10,10 @@ AllCops:
   - 'gems/**/*'
   - 'db/migrate/**/*'
 
-  NewCops: enable
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
 ###################### Kernel ######################
 
 Lint/Loop:
