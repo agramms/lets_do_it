@@ -34,14 +34,14 @@ class ApplicationController < ActionController::API
     def jwk_private
       return @jwk_private if defined?(@jwk_private)
 
-      priv_key = OpenSSL::PKey::RSA.new(File.read(Rails.root.join('certs', 'private.key')))
+      priv_key = OpenSSL::PKey::RSA.new(File.read(Rails.root.join('certs/private.key')))
       @jwk_private = JWT::JWK.new(priv_key)
     end
 
     def jwk_loader
       return @jwk_loader if defined?(@jwk_loader)
 
-      pub_key = OpenSSL::PKey::RSA.new File.read Rails.root.join('certs', 'public.key')
+      pub_key = OpenSSL::PKey::RSA.new File.read Rails.root.join('certs/public.key')
       jwk = JWT::JWK.new(pub_key)
 
       @jwk_loader = lambda do |options|

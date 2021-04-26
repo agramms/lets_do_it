@@ -1,5 +1,5 @@
 describe UsersController, type: :controller do
-  context '#create' do
+  describe '#create' do
     context 'when informed correct params' do
       let(:params) do
         {
@@ -10,7 +10,9 @@ describe UsersController, type: :controller do
         }
       end
 
-      it 'should return 200, with user and token, creating a new user' do
+      # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength
+      # if I did not do that, in each expectation, I will need to access database
+      it 'returns 200, with user and token, creating a new user' do
         post :create, params: params
 
         data = JSON.parse(response.body)
@@ -37,15 +39,14 @@ describe UsersController, type: :controller do
           email: params[:email]
         )
       end
+      # rubocop:enable RSpec/MultipleExpectations, RSpec/ExampleLength
     end
   end
 
   private
 
     def jwk_loader
-      return @jwk_loader if defined?(@jwk_loader)
-
-      pub_key = OpenSSL::PKey::RSA.new File.read Rails.root.join('certs', 'public.key')
+      pub_key = OpenSSL::PKey::RSA.new File.read Rails.root.join('certs/public.key')
       jwk = JWT::JWK.new(pub_key)
 
       @jwk_loader = lambda do |options|
