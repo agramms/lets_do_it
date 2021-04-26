@@ -7,11 +7,17 @@ services:
     environment:
       POSTGRES_USER: lets_do_it
       POSTGRES_PASSWORD: development
+    ports:
+      - "5432:5432"
   api:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/lets_do_it
+    environment:
+      LETS_DO_IT_DATABASE_HOST: db
+      LETS_DO_IT_DATABASE_USER: lets_do_it
+      LETS_DO_IT_DATABASE_PASS: development
     ports:
       - "3000:3000"
     depends_on:

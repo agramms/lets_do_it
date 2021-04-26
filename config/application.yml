@@ -1,0 +1,5 @@
+# Add configuration values here, as shown below.
+jwt_secret: 520a3f6d361998e3d59d02a335a8aab24b806b4f71641764c858ca5606422050a8cc4f531abbce49b964b7c03aad1a7df8ecd244aa33ab9685889c56f4f2b9ad
+
+production:
+  jwt_secret: ENV['PRODUCTION_SECRET']
