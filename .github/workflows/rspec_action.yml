@@ -5,8 +5,8 @@ on: [push]
 jobs:
   rspec:
     runs-on: ubuntu-latest
-      container:
-        image: ruby:3.0.0
+    container:
+      image: ruby:3.0.0
 
     services:
       postgres:
