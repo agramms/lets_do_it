@@ -65,6 +65,7 @@ jobs:
         PGUSER: postgres
         PGPORT: ${{ job.services.postgres.ports[5432] }}
         RAILS_ENV: test
+        LETS_DO_IT_DATABASE_HOST: postgres
       run: |
         bin/rails db:create db:schema:load
         bundle exec rspec
