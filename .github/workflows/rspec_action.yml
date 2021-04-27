@@ -61,8 +61,8 @@ jobs:
 
     - name: Download Codeclimate reporter
       run: |
-      curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      chmod +x ./cc-test-reporter
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
 
     - name: Setup DB, Run tests
       env:
