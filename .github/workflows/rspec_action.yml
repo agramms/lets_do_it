@@ -59,6 +59,11 @@ jobs:
     - name: Yarn install
       run: yarn install
 
+    - name: Download Codeclimate reporter
+      run: |
+      curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      chmod +x ./cc-test-reporter
+
     - name: Setup DB, Run tests
       env:
         PGHOST: postgres
@@ -68,4 +73,8 @@ jobs:
         LETS_DO_IT_DATABASE_HOST: postgres
       run: |
         bin/rails db:create db:schema:load
+        ./cc-test-reporter before-build
         bundle exec rspec
+
+    - name: Sending Coverage Report
+      run: ./cc-test-reporter after-build -t simplecov
