@@ -35,6 +35,7 @@ group :development, :test do
   gem 'amazing_print'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-byebug'
+  gem 'rspec_junit_formatter'
   gem 'rspec-rails'
 end
 
