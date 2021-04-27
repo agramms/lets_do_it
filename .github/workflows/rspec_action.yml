@@ -77,7 +77,9 @@ jobs:
         bundle exec rspec
 
     - name : machine ls $GITHUB_EVENT_PATH
-      run : "ls -la $GITHUB_EVENT_PATH"
+      run : |
+        echo $GITHUB_REF
+        echo $GITHUB_SHA
 
     - name: Report coverage
       run: GIT_BRANCH=$GITHUB_REF GIT_COMMIT_SHA=$GITHUB_SHA ./cc-test-reporter after-build --debug -t simplecov --exit-code $?
