@@ -74,7 +74,7 @@ jobs:
         LETS_DO_IT_DATABASE_HOST: postgres
       run: |
         bin/rails db:create db:schema:load
-        bundle exec rspec
+        bundle exec rspec --format progress --format RspecJunitFormatter
 
     - name : machine ls $GITHUB_EVENT_PATH
       run : |
