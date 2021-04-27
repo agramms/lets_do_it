@@ -77,4 +77,4 @@ jobs:
         bundle exec rspec
 
     - name: Sending Coverage Report
-      run: ./cc-test-reporter after-build -t simplecov
+      run: ./cc-test-reporter after-build --debug -t simplecov --exit-code $?
