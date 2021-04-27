@@ -74,14 +74,9 @@ jobs:
         LETS_DO_IT_DATABASE_HOST: postgres
       run: |
         bin/rails db:create db:schema:load
-        bundle exec rspec --format progress --format RspecJunitFormatter
+        bundle exec rspec --format progress
 
-    - name : machine ls $GITHUB_EVENT_PATH
-      run : |
-        echo $GITHUB_REF
-        echo $GITHUB_SHA
-
-    - name: Report coverage
-      run: GIT_BRANCH=$GITHUB_REF GIT_COMMIT_SHA=$GITHUB_SHA ./cc-test-reporter after-build --debug -t simplecov --exit-code $?
+    - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v2.7.5
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
