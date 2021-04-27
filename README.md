@@ -1,6 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/f919bbcdbb0583e233ab/maintainability)](https://codeclimate.com/github/agramms/lets_do_it/maintainability)
-
-[![Test Coverage](https://api.codeclimate.com/v1/badges/f919bbcdbb0583e233ab/test_coverage)](https://codeclimate.com/github/agramms/lets_do_it/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f919bbcdbb0583e233ab/maintainability)](https://codeclimate.com/github/agramms/lets_do_it/maintainability)[![Test Coverage](https://api.codeclimate.com/v1/badges/f919bbcdbb0583e233ab/test_coverage)](https://codeclimate.com/github/agramms/lets_do_it/test_coverage)
 
 # README
 
