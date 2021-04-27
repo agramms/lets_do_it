@@ -76,5 +76,7 @@ jobs:
         ./cc-test-reporter before-build
         bundle exec rspec
 
-    - name: Sending Coverage Report
-      run: ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
+    - name: Publish code coverage
+      run: |
+        export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
+        ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}} --coverage-input-type simplecov --exit-code $?
